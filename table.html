@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="table.css">
+</head>
+<body>
+    <header>
+        <h1>Data Calon Staff Pemira KM-ITERA 2023</h1>
+        <img src="pemira.png" alt="Logo">
+    </header>
+    <main>
+        <section id="sidebar">
+            <h2>Menu Utama</h2>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Form.html">Daftar Menjadi Staff PEMIRA 2023</a></li>
+            </ul>
+        </section>
+        <section id="content">
+            <h2>Berikut adalah data diri calon staff pemira 2023</h2>
+            <table id="studentTable">
+                <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Program Studi</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Alamat</th>
+                </tr>
+                <tr>
+                    <td>Andreyan Renaldi</td>
+                    <td>121140186</td>
+                    <td>Teknik Informatika</td>
+                    <td>andrey00@gmail.com</td>
+                    <td>0101</td>
+                    <td>Laki-laki</td>
+                    <td>08 April 2003</td>
+                    <td>Lampung</td>
+                </tr>
+                <tr>
+                    <td>Alfie Syahrin</td>
+                    <td>121121212</td>
+                    <td>PWK</td>
+                    <td>alfie01@gmail.com</td>
+                    <td>0202</td>
+                    <td>Laki-laki</td>
+                    <td>10 Agustus 2002</td>
+                    <td>Tangerang</td>
+                </tr>
+                <tr>
+                    <td>Nadia Umar</td>
+                    <td>121230053</td>
+                    <td>Teknik Geomatika</td>
+                    <td>nadia02@gmail.com</td>
+                    <td>0303</td>
+                    <td>Perempuan</td>
+                    <td>2 Februari 2002</td>
+                    <td>Kotaagung</td>
+                </tr>
+                <tr>
+                    <td>Dwi Wulandari</td>
+                    <td>12121212</td>
+                    <td>PWK</td>
+                    <td>dwii03@gmail.com</td>
+                    <td>0404</td>
+                    <td>Laki-laki</td>
+                    <td>3 Maret 2003</td>
+                    <td>Bandar Lampung</td>
+                </tr>
+                <tr>
+                    <td>Raidah Sabhir</td>
+                    <td>121120003</td>
+                    <td>Teknik Sipil</td>
+                    <td>raidah04@gmail.com</td>
+                    <td>0505</td>
+                    <td>Perempuan</td>
+                    <td>4 Agustus 2003</td>
+                    <td>Sukarame</td>
+                </tr>
+                <tr>
+                    <td>Maulana</td>
+                    <td>121110001</td>
+                    <td>Teknik Mesin</td>
+                    <td>maul05@gmail.com</td>
+                    <td>0606</td>
+                    <td>Laki-laki</td>
+                    <td>4 Januari 2023</td>
+                    <td>Bekasi</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; PEMIRA KM-ITERA 2023</p>
+    </footer>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const studentTable = document.getElementById("studentTable");
+
+        if (localStorage.getItem("studentDataList")) {
+            const studentDataList = JSON.parse(localStorage.getItem("studentDataList"));
+
+            studentDataList.forEach(function(studentData) {
+                const newRow = studentTable.insertRow(-1);
+
+                const cellNama = newRow.insertCell(0);
+                const cellNIM = newRow.insertCell(1);
+                const cellProdi = newRow.insertCell(2);
+                const cellEmail = newRow.insertCell(3);
+                const cellPassword = newRow.insertCell(4);
+                const cellJenisKelamin = newRow.insertCell(5);
+                const cellTanggalLahir = newRow.insertCell(6);
+                const cellAlamat = newRow.insertCell(7);
+
+                cellNama.innerHTML = studentData.nama;
+                cellNIM.innerHTML = studentData.nim;
+                cellProdi.innerHTML = studentData.prodi;
+                cellEmail.innerHTML = studentData.email;
+                cellPassword.innerHTML = studentData.password;
+                cellJenisKelamin.innerHTML = studentData.jenisKelamin;
+                cellTanggalLahir.innerHTML = studentData.tanggalLahir;
+                cellAlamat.innerHTML = studentData.alamat;
+            });
+        }
+    });
+    </script>
+</body>
+</html>
